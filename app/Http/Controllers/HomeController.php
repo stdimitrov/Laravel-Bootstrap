@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Books;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -12,6 +12,16 @@ class HomeController extends Controller
      *
      * @return void
      */
+/*
+public function books()
+{
+    $book_model = new Books();
+    $books_data = $book_model->getBooks();
+
+
+    echo '<pre>' . print_r($books_data, true) . '</pre>';
+
+}*/
     /*
     public function __construct()
     {

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Input;
+use DB;
 use Auth, View;
 use App\Providers\ComposerServiceProvider;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;  // <----
-use App\Models\Post;                  // <----
+use App\Models\Show;                  // <----
+use Illuminate\Database\Eloquent\Model;
 
 class PagesController extends Controller
 {
@@ -44,7 +47,12 @@ class PagesController extends Controller
 
     public function admin()
     {
-            return view('admin.page');
+           /* $user_model=new Show();
+        $users_data=$user_model->getUsers();
+        //foreach ($users_data as $sdata)//{ echo $sdata_id; }*/
+        $showusers = DB::table('users')->get();
+        return view('admin.page', ['users' => $showusers]);
     }
+
 
 }
